@@ -1,0 +1,130 @@
+
+Goal: Allow users to Nutritionix API search  by Brand Name , UPC, Phrase name.
+
+endpoints  :
+phrase example: curl -v  -X GET "https://api.nutritionix.com/v1_1/search/milk?results=0%3A20&cal_min=0&cal_max=50000&fields=item_name%2Cbrand_name%2Citem_id%2Cbrand_id&appId=68828d83&appKey=4726b0056a28527dfd9b367cf21378ab"
+results:
+
+{
+ "total_hits": 31705,
+ "max_score": 12.275776,
+ "hits": [
+  {
+   "_index": "f762ef22-e660-434f-9071-a10ea6691c27",
+   "_type": "item",
+   "_id": "513fceb375b8dbbc210000f1",
+   "_score": 12.275776,
+   "fields": {
+    "item_id": "513fceb375b8dbbc210000f1",
+    "item_name": "1% Milk - 1 cup",
+    "brand_id": "513fcc648110a4cafb90ca5e",
+    "brand_name": "USDA",
+    "nf_serving_size_qty": 1,
+    "nf_serving_size_unit": "serving"
+   }
+  },
+  {
+   "_index": "f762ef22-e660-434f-9071-a10ea6691c27",
+   "_type": "item",
+   "_id": "513fceb375b8dbbc210000fb",
+   "_score": 12.263271,
+   "fields": {
+    "item_id": "513fceb375b8dbbc210000fb",
+    "item_name": "Skim Milk - 1 cup",
+    "brand_id": "513fcc648110a4cafb90ca5e",
+    "brand_name": "USDA",
+    "nf_serving_size_qty": 1,
+    "nf_serving_size_unit": "serving"
+   }
+  },
+  {
+   "_index": "f762ef22-e660-434f-9071-a10ea6691c27",
+   "_type": "item",
+   "_id": "513fceb375b8dbbc210000f3",
+   "_score": 12.204925,
+   "fields": {
+    "item_id": "513fceb375b8dbbc210000f3",
+    "item_name": "1% Milk - 1 cup",
+    "brand_id": "513fcc648110a4cafb90ca5e",
+    "brand_name": "USDA",
+    "nf_serving_size_qty": 1,
+    "nf_serving_size_unit": "serving"
+   }
+  },
+  {
+   "_index": "f762ef22-e660-434f-9071-a10ea6691c27",
+   "_type": "item",
+   "_id": "513fceb375b8dbbc2100017b",
+   "_score": 12.204925,
+   "fields": {
+    "item_id": "513fceb375b8dbbc2100017b",
+    "item_name": "2% Milk - 1 cup",
+    "brand_id": "513fcc648110a4cafb90ca5e",
+    "brand_name": "USDA",
+    "nf_serving_size_qty": 1,
+    "nf_serving_size_unit": "serving"
+   }
+  },
+  {
+   "_index": "f762ef22-e660-434f-9071-a10ea6691c27",
+   "_type": "item",
+   "_id": "5ad66470f551fef1271b049a",
+   "_score": 12.144275,
+   "fields": {
+    "item_id": "5ad66470f551fef1271b049a",
+    "item_name": "Milk, reduced fat, fluid, 2% milkfat, with added nonfat milk solids and vitamin A and vitamin D - 1 fl oz",
+    "brand_id": "513fcc648110a4cafb90ca5e",
+    "brand_name": "USDA",
+    "nf_serving_size_qty": 1,
+    "nf_serving_size_unit": "serving"
+   }
+  }
+  }
+ ]
+}
+
+UPC example: curl -v  -X GET "https://api.nutritionix.com/v1_1/item?upc=52200004265&appId=68828d83&appKey=4726b0056a28527dfd9b367cf21378ab"
+results : {
+ "old_api_id": null,
+ "item_id": "51c38f3c97c3e6d3d972ef8d",
+ "item_name": "Cereal For Baby, Rice, Stage 1",
+ "leg_loc_id": null,
+ "brand_id": "51db37c3176fe9790a8991f6",
+ "brand_name": "Beech-Nut",
+ "item_description": "Rice, Stage 1",
+ "updated_at": "2014-11-24T20:24:24.000Z",
+ "nf_ingredient_statement": "Rice Flour, Contains Less Than 1% of the Following: Sunflower Oil and Rice Bran Extract. Vitamins and Minerals: Tricalcium Phosphate, ascorbic Acid (Vitamin C), Electrolytic Iron, Zinc Sulfate, D-Alpha Tocopherol Acetate (Vitamin E), Niacinamide, Mixed Tocopherols, Mononitrate (Vitamin B1), Riboflavin (Vitamin B2), Pyridoxine Hydrochloride (Vitamin B6), Vitamin B12 and Folic Acid.",
+ "nf_water_grams": null,
+ "nf_calories": 60,
+ "nf_calories_from_fat": 0,
+ "nf_total_fat": null,
+ "nf_saturated_fat": null,
+ "nf_trans_fatty_acid": null,
+ "nf_polyunsaturated_fat": null,
+ "nf_monounsaturated_fat": null,
+ "nf_cholesterol": null,
+ "nf_sodium": null,
+ "nf_total_carbohydrate": null,
+ "nf_dietary_fiber": null,
+ "nf_sugars": 0,
+ "nf_protein": 1,
+ "nf_vitamin_a_dv": 0,
+ "nf_vitamin_c_dv": 25,
+ "nf_calcium_dv": 25,
+ "nf_iron_dv": 45,
+ "nf_refuse_pct": null,
+ "nf_servings_per_container": 7,
+ "nf_serving_size_qty": 0.25,
+ "nf_serving_size_unit": "cup",
+ "nf_serving_weight_grams": 15,
+ "allergen_contains_milk": null,
+ "allergen_contains_eggs": null,
+ "allergen_contains_fish": null,
+ "allergen_contains_shellfish": null,
+ "allergen_contains_tree_nuts": null,
+ "allergen_contains_peanuts": null,
+ "allergen_contains_wheat": null,
+ "allergen_contains_soybeans": null,
+ "allergen_contains_gluten": null,
+ "usda_fields": null
+}
