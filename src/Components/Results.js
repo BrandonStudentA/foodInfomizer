@@ -5,27 +5,22 @@ function Results(props){
   
 
 
+    const { searchRes} = props
+
     return(
-       
         <div>
-            
-              
-        {props.searchRes.map((food, index) =>
+            {searchRes.map((food, index) =>
         <div  key={index} >
-            <Link to='/ResultDetails'>
-            <h1 >{food.fields.brand_name}</h1>
+            <Link to={`/results/${food._id}`}>
+                <h2>{food.fields.brand_name}
+                    {food.fields.item_name}
+                </h2>
             </Link>
         </div>
         
         )}
-
-
-        </div>
-             
+        </div>      
     )  
-
-
-
 }
 
    

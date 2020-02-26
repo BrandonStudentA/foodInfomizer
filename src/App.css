@@ -5,12 +5,12 @@
   background-size: contain;
   background-repeat:no-repeat;
   background: image();
-  font-family: 'Permanent Marker', ;
   background-image:url('https://images.unsplash.com/photo-1559598561-526bcab44470?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60');
   height:auto;
   color: antiquewhite;
   -webkit-text-stroke-width: 3px;
   -webkit-text-stroke-color: black;
+  font-size: 25px;
 }
 
  
