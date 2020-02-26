@@ -16,7 +16,6 @@ function ResultDetails(props){
          {!food?'page loading':
             
             <div>
-                {food.fields.images_front_url},
                <h1>
                     {food.fields.brand_name} 
                     {food.fields.item_name} 

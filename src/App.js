@@ -30,6 +30,8 @@ class App extends React.Component{
     this.handleClick = this.handleClick.bind(this)
   }
 
+
+
   handleChange(event){
     console.log(`input name: ${event.target.name}`)
 
@@ -53,13 +55,60 @@ class App extends React.Component{
       console.log(error)
     }
   }
+  componentDidMount(event) {
+    // event.preventDefault()
+    let chart = am4core.create("chartdiv", am4charts.XYChart);
+
+    chart.paddingRight = 20;
+
+    // let data = [];
+    // let visits = 10;
+    // for (let i = 1; i < 366; i++) {
+    //   visits += Math.round((Math.random() < 0.5 ? 1 : -1) * Math.random() * 10);
+    //   data.push({ date: new Date(2018, 0, i), measurement: "masurements" + i, value: visits });
+    // }
+    // chart.dataSource.url = ;
+    chart.data = this.state.searchResponse;
+
+    let categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
+    categoryAxis.dataFields.category = "nutrition";
+    categoryAxis.title.text = "Nutrition";
+    let valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+    valueAxis.title.text = "(mg)";
+    valueAxis.tooltip.disabled = true;
+    valueAxis.renderer.minWidth = 35;
+
+    let series = chart.series.push(new am4charts.ColumnSeries());
+    series.dataFields.valueY = "mg";
+    series.dataFields.categoryX = "nutrition";
+
+    series.tooltipText = "{valueY.value}";
+    series.name = "Nutrition";
+    series.columns.template.tooltipText = "Series: {name}\nCategory: {categoryX}\nValue: {valueY}";
+    series.columns.template.fill = am4core.color("#104547"); // fill
+    series.dataFields.valueY = "mg";
+    series.dataFields.categoryX = "fields";
+    chart.cursor = new am4charts.XYCursor();
+
+    let scrollbarX = new am4charts.XYChartScrollbar();
+    scrollbarX.series.push(series);
+    chart.scrollbarX = scrollbarX;
+
+    this.chart = chart;
+  }
+
+  componentWillUnmount() {
+    if (this.chart) {
+      this.chart.dispose();
+    }
+  }
+
 
   render() { 
  
-    console.log(this.state.searchResponse)
+    
  
- 
- 
+
     return ( 
 
       <>
@@ -86,15 +135,15 @@ class App extends React.Component{
         <Route exact path="/results/:id" 
           //this is allowing to pass props to other 
           render={(routerProps)=>
-          <ResultDetails 
-          searchRes={this.state.searchResponse}
+          <ResultDetails   
+          searchRes={this.state.searchResponse }
           {...routerProps}/>}
         />
-
+          
         {/* <Route path="/results/:id">
             <ResultsDetails />
         </Route> */}
-          
+          {<div id="chartdiv" style={{ width: "100%", height: "500px" }}></div>}
         </div>
       </>
     )
