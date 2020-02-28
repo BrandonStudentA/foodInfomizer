@@ -24,26 +24,25 @@ class Search extends React.Component{
         console.log(`input name: ${event.target.name}`)
         console.log(`input value: ${event.target.value}`)
     
-       this.setState({
-        foodPhrase:event.target.value,
-       
+      this.setState({
+      foodPhrase:event.target.value,
+      
       })
     }
 
     async handleClick(){
         try{
-             const res =  await Axios.get( 
-             `https://api.nutritionix.com/v1_1/search/?results=0%3A20&cal_min=0&cal_max=50000&fields=item_name%2Cbrand_name%2Citem_id%2Cbrand_id&appId=${App_ID}=${App_TOKEN}`
-            )
+            const res =  await Axios.get( 
+            `https://api.nutritionix.com/v1_1/search/?results=0%3A20&cal_min=0&cal_max=50000&fields=item_name%2Cbrand_name%2Citem_id%2Cbrand_id&appId=${App_ID}=${App_TOKEN}`
+          )
             console.log(res.data.hits)
             this.setState={
             searchResponse: res.data.hits
             }
         }
         catch(error){
-             console.log(error)
+          console.log(error)
         }
-
     }
 
 
@@ -56,30 +55,23 @@ render(){
     
         <header className='Search'>
         <h1>
-           Polarity Dust
-         </h1>
-       
-     
-        
-        
+          Polarity Dust
+        </h1>
         </header>
       
       <div> 
         <h1> Search for the food you love </h1>
       </div>
-       <form>
-         <input onChange={this.handleChange}  name="foodPhrase" value={this.foodPhrase} placeholder=" Search Food By Phrase i.e. taco"/>
-           <button onClick={this.handleClick}> Search</button>
-       </form>
-    
+      <form>
+        <input onChange={this.handleChange}  name="foodPhrase" value={this.foodPhrase} placeholder=" Search Food By Phrase i.e. taco"/>
+          <button onClick={this.handleClick}> Search</button>
+      </form>
         <div>
         
-       
         </div>
         
-       
       
-    </div>
+      </div>
     </>
   );
 
