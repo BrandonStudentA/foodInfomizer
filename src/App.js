@@ -1,35 +1,10 @@
 import React from 'react';
-<<<<<<< HEAD
-// import logo from './logo.svg';
 import Search from './Components/Search'
-import { Route } from 'react-router-dom'
+import {Route} from 'react-router-dom'
+
 import './App.css'
-=======
 import * as am4core from "@amcharts/amcharts4/core";
 import * as am4charts from "@amcharts/amcharts4/charts";
-// import am4themes_animated from "@amcharts/amcharts4/themes/animated";
->>>>>>> 1af76ccd4ab66f2ca6982c07244b51ca7f6c28cd
-
-import Search from './Components/Search'
-import {Route,  } from 'react-router-dom'
-
-
-<<<<<<< HEAD
-function App() {
-    return ( 
-    < div className = "App" >
-
-        <div className = "App-header" >
-        <Search / >
-        </div> </div >
-    )
-
-}
-
-
-
-export default App;
-=======
 import './App.css'
 import './Assets/react.chart.css'
 import Header from './Components/Header'
@@ -38,6 +13,12 @@ import ResultDetails from './Components/ResultDetails'
 import Axios from 'axios';
 const App_TOKEN = process.env.REACT_APP_TOKEN
 const App_ID = process.env.REACT_APP_ID
+
+
+
+
+
+
 
 
 class App extends React.Component{
@@ -81,18 +62,11 @@ class App extends React.Component{
   }
   
   render() { 
- 
-    
- 
 
     return ( 
-
       <>
         <div className="App">
-
-         
           <Header/>
-         
           <Route
             exact
             path='/'
@@ -107,8 +81,7 @@ class App extends React.Component{
             searchRes={this.state.searchResponse}
             /> 
             </>
-            }/>
-           
+            }/>  
         <Route exact path="/results/:id" 
           //this is allowing to pass props to other 
           render={(routerProps)=>
@@ -116,9 +89,6 @@ class App extends React.Component{
           searchRes={this.state.searchResponse }
           {...routerProps}/>}
         />
-          
-      
-          <div></div>
         </div>
       </>
     )
@@ -128,4 +98,3 @@ class App extends React.Component{
 
 
 export default App;
->>>>>>> 1af76ccd4ab66f2ca6982c07244b51ca7f6c28cd
