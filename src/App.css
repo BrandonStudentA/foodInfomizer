@@ -25,7 +25,10 @@ input{
     animation: App-logo-spin infinite 20s linear;
   }
 }
-.header{
+div{
+  margin: 0 auto;
+}
+.header1{
   margin: 2em 2em 2em 2em;
   background-size: cover;
   background-repeat:no-repeat;
@@ -34,6 +37,9 @@ input{
   box-shadow: 5px 10px #8888885b;
   font-size: larger;
   
+}
+.ResultDetails{
+  width: fit-content;
 }
 .App-header {
   background-color: #282c34;

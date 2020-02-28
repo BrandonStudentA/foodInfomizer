@@ -6,7 +6,7 @@ function Header(){
 
 
     return(
-        <div className="header">
+        <div className="header1">
             <h1>FoodInfomizer</h1>
         </div>
     )

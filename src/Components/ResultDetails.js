@@ -1,4 +1,6 @@
-import React from 'react'
+import React from 'react';
+import ChartCard from './ChartCard';
+import ChartistGraph from 'react-chartist';
 
 function ResultDetails(props){
     console.log(props)
@@ -9,6 +11,31 @@ function ResultDetails(props){
     })
     console.log(food)
 
+
+    var dataBar = {
+        labels: ['Cal', 'TtlFat', 'SatFat', 'TransFat', 'Choles', 'Sodium', 'Carbs', 'Sugar', 'Protein', 'Fiber', 'potassium'],
+        series: [
+            [542, 443, 320, 780, 553, 453, 326, 434, 568, 610, 756, 895],
+            [412, 243, 280, 580, 453, 353, 300, 364, 368, 410, 636, 695]
+        ]
+    };
+    var optionsBar = {
+        seriesBarDistance: 10,
+        axisX: {
+            showGrid: false
+        },
+        height: "500px"
+    };
+    var responsiveBar = [
+        [' max-width: 100%', {
+            seriesBarDistance: 5,
+            axisX: {
+                labelInterpolationFnc: function (value) {
+                    return value[0];
+                }
+            }
+        }]
+    ];
 
     return(
         <>
@@ -27,16 +54,16 @@ function ResultDetails(props){
                 </h2>
                 <p>
                 <div>
-                    Calories {food.fields.nf_calories}
+                    Calories    {food.fields.nf_calories}
                </div>
                <div>
-                    Total Fat{food.fields.nf_total_fat}
+                    Total Fat   {food.fields.nf_total_fat}
                </div>
                <div>
-                   Saturated Fat {food.fields.nf_saturated_fat}    
+                   Saturated Fat     {food.fields.nf_saturated_fat}    
                </div>
                <div>
-                   Monounsaturated Fat {food.fields.nf_monounsaturated_fat}
+                   Monounsaturated Fat   {food.fields.nf_monounsaturated_fat}
                </div>
                <div>
                    Polyunsaturated Fat {food.fields.nf_polyunsaturated_fat}
@@ -82,37 +109,37 @@ function ResultDetails(props){
                </div>
                <div>
                {food.fields.images_front_full_url}
-               </div>
-
-                
-                
-                
+            <ChartCard/>
+               <div className="row" > 
+                     <div className="col-md-6" >
+                         <ChartCard
+                             content={
+                                <div id="chartGraph" className="ct-chart" >
+                                    <ChartistGraph
+                                         data={dataBar}
+                                        type="Bar"
+                                        options={optionsBar}
+                                        responsiveOptions={responsiveBar}
+                                    />
+                                </div>
+                            }
+                            legend={
+                                <div className="legend">
+                                    <i className="fa fa-circle text-info"></i> 
+                                    <i className="fa fa-circle text-danger"></i> 
+                                </div>
+                            }
+                         />
+                     </div>
+                </div>
                
-               
-               
-                
-                
-                
-                
-                
-              
-                
-                 
-                 
-                
-               
-                {food.fields.nf_serving_size_unit}
-                {food.fields.nf_serving_weight_grams}
-                {food.fields.metric_qty}
-                {food.fields.metric_uom}
-               
-                </p>
+                </div>
             
-            </div>
-           
+                </p>
         
-        }
-      </>
+                </div>
+            }
+        </>
     )
 
 }
